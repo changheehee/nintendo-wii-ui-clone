@@ -1,0 +1,37 @@
+:root {
+    color-scheme: light;
+
+    --font-brand: 'Nunito', sans-serif;
+    --font-clock: 'DSEG7 Modern', monospace;
+    --font-count: 'Barlow Semi Condensed', sans-serif;
+    --font-playful: 'Luckiest Guy', cursive;
+    --font-system: 'M PLUS 1p', sans-serif;
+    --color-brand-blue: #5ab4d9;
+    --press-duration: 60ms;
+    --release-duration: 120ms;
+    --pressed-brightness: 0.92;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    min-block-size: 100dvh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+button {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-brand-blue);
+    outline-offset: 2px;
+}

@@ -1,0 +1,127 @@
+.channel-screen {
+    position: absolute;
+    inset: 0;
+    background-color: #000000;
+}
+
+.channel-screen-frame {
+    position: absolute;
+    inset-block-start: calc(23 * var(--stage-pixel));
+    inset-inline-start: calc(28.5 * var(--stage-pixel));
+    display: grid;
+    grid-template-rows: 1fr calc(154 * var(--stage-pixel));
+    inline-size: calc(1143 * var(--stage-pixel));
+    block-size: calc(644 * var(--stage-pixel));
+    background-color: #ffffff;
+    mask: url('./assets/channelFrameMask@2x.png') center / 100% 100% no-repeat;
+    view-transition-name: channel-zoom;
+}
+
+.channel-screen-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.channel-screen-slot {
+    position: absolute;
+    inset: 0;
+    animation: fade-in 250ms ease-out both;
+}
+
+.channel-screen-empty {
+    --empty-scanline-period: calc(6 * var(--stage-pixel));
+
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            rgb(255 255 255 / 0.08) 0,
+            rgb(255 255 255 / 0.08) calc(var(--empty-scanline-period) * 0.5),
+            rgb(0 0 0 / 0.05) calc(var(--empty-scanline-period) * 0.5),
+            rgb(0 0 0 / 0.05) var(--empty-scanline-period)
+        ),
+        linear-gradient(to bottom, #a9a9a9, #949494);
+}
+
+.channel-screen-empty-label {
+    color: rgb(0 0 0 / 0.2);
+    font-family: var(--font-brand);
+    font-size: calc(200 * var(--stage-pixel));
+    font-weight: 800;
+    letter-spacing: calc(6 * var(--stage-pixel));
+    line-height: 1;
+}
+
+.channel-screen-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(53 * var(--stage-pixel));
+    padding-block-end: calc(14 * var(--stage-pixel));
+    border-block-start: calc(1.5 * var(--stage-pixel)) solid #8e9296;
+    background-image:
+        radial-gradient(ellipse 60% 90% at 50% 35%, rgb(255 255 255 / 0.9), rgb(255 255 255 / 0)),
+        repeating-linear-gradient(
+            to bottom,
+            #ebebeb 0,
+            #ebebeb calc(2 * var(--stage-pixel)),
+            #d8d8d8 calc(2 * var(--stage-pixel)),
+            #d8d8d8 calc(4 * var(--stage-pixel))
+        );
+}
+
+.channel-screen-pill {
+    position: relative;
+    isolation: isolate;
+    inline-size: calc(336 * var(--stage-pixel));
+    block-size: calc(92 * var(--stage-pixel));
+    padding: 0;
+    border: calc(3 * var(--stage-pixel)) solid var(--color-brand-blue);
+    border-radius: calc(46 * var(--stage-pixel));
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f6f9fb 48%, #e1e8ed 100%);
+    box-shadow: 0 calc(3 * var(--stage-pixel)) calc(5 * var(--stage-pixel)) rgb(0 0 0 / 0.16);
+    color: #3a3a3a;
+    font-family: var(--font-system);
+    font-size: calc(44 * var(--stage-pixel));
+    font-weight: 500;
+    line-height: 1;
+    transition:
+        scale var(--release-duration) ease-out,
+        filter var(--release-duration) ease-out;
+}
+
+.channel-screen-pill::before {
+    position: absolute;
+    inset-block-start: 8%;
+    inset-inline: 5%;
+    z-index: -1;
+    block-size: 36%;
+    border-radius: calc(30 * var(--stage-pixel));
+    content: '';
+    background-image: linear-gradient(to bottom, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.2));
+}
+
+.channel-screen-pill:hover {
+    scale: 1.03;
+}
+
+.channel-screen-pill:active {
+    scale: 0.96;
+    filter: brightness(var(--pressed-brightness));
+    transition-duration: var(--press-duration);
+}
+
+.channel-screen-pill:disabled {
+    opacity: 0.5;
+    scale: 1;
+    filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .channel-screen-slot {
+        animation: none;
+    }
+}

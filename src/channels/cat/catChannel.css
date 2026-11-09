@@ -1,0 +1,92 @@
+.cat-channel-backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse at 50% 42%, #ffffff 0%, #f1f7fb 50%, #d5e9f5 100%);
+}
+
+.cat-screen-stage > canvas {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+}
+
+.cat-card {
+    --cat-float-distance: calc(3 * var(--stage-pixel));
+    --cat-float-duration: 2.4s;
+
+    display: grid;
+    grid-template: 100% / 100%;
+    place-items: center;
+}
+
+.cat-card-title,
+.cat-card-image,
+.cat-card-shadow {
+    grid-area: 1 / 1;
+}
+
+.cat-card-title {
+    z-index: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    filter: drop-shadow(0 calc(1.5 * var(--stage-pixel)) 0 rgb(90 50 20 / 0.25));
+}
+
+.cat-card-title-text {
+    fill: #ffc93c;
+    stroke: #7a4317;
+    stroke-width: 3.2px;
+    stroke-linejoin: round;
+    paint-order: stroke fill;
+    font-family: var(--font-playful);
+    font-size: 31px;
+    letter-spacing: 1.5px;
+}
+
+.cat-card-image {
+    z-index: 2;
+    align-self: end;
+    block-size: 67%;
+    margin-block-end: 8.5%;
+    animation: float-cat var(--cat-float-duration) ease-in-out infinite alternate;
+}
+
+.cat-card-shadow {
+    z-index: 1;
+    align-self: end;
+    inline-size: 22%;
+    block-size: 8%;
+    margin-block-end: 5.5%;
+    border-radius: 50%;
+    background-image: radial-gradient(closest-side, rgb(40 60 80 / 0.28), rgb(40 60 80 / 0));
+    animation: breathe-shadow var(--cat-float-duration) ease-in-out infinite alternate;
+}
+
+@keyframes float-cat {
+    from {
+        translate: 0 var(--cat-float-distance);
+    }
+
+    to {
+        translate: 0 calc(-1 * var(--cat-float-distance));
+    }
+}
+
+@keyframes breathe-shadow {
+    from {
+        scale: 1;
+        opacity: 1;
+    }
+
+    to {
+        scale: 0.8;
+        opacity: 0.6;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cat-card-image,
+    .cat-card-shadow {
+        animation: none;
+    }
+}

@@ -1,0 +1,13 @@
+@import '@fontsource/m-plus-1p/latin-500.css';
+@import '@fontsource/m-plus-1p/latin-800.css';
+@import '@fontsource/nunito/latin-800.css';
+@import '@fontsource/barlow-semi-condensed/latin-400.css';
+@import '@fontsource/luckiest-guy/latin-400.css';
+
+@font-face {
+    font-family: 'DSEG7 Modern';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('dseg/fonts/DSEG7-Modern/DSEG7Modern-Bold.woff2') format('woff2');
+}

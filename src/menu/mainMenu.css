@@ -1,0 +1,28 @@
+.main-menu {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background-color: #e8e8e8;
+    background-image:
+        radial-gradient(calc(250 * var(--stage-pixel)) calc(64 * var(--stage-pixel)) at calc(600 * var(--stage-pixel)) calc(524 * var(--stage-pixel)), #f0f0f0 55%, rgb(240 240 240 / 0)),
+        repeating-linear-gradient(
+            to bottom,
+            #efefef 0,
+            #e8e8e8 calc(1 * var(--stage-pixel)),
+            #e3e3e3 calc(2 * var(--stage-pixel)),
+            #e4e4e4 calc(4 * var(--stage-pixel)),
+            #e7e7e7 calc(5 * var(--stage-pixel)),
+            #efefef calc(6 * var(--stage-pixel))
+        );
+    animation: fade-in 600ms ease-out 150ms both;
+}
+
+.main-menu-body {
+    display: contents;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .main-menu {
+        animation: none;
+    }
+}

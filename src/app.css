@@ -1,0 +1,47 @@
+.stage {
+    --stage-width: 1200;
+    --stage-height: 675;
+    --stage-pixel: min(calc(100vw / var(--stage-width)), calc(100dvh / var(--stage-height)));
+
+    position: relative;
+    inline-size: calc(var(--stage-width) * var(--stage-pixel));
+    block-size: calc(var(--stage-height) * var(--stage-pixel));
+    overflow: hidden;
+    background-color: #000000;
+    cursor: image-set(url('./assets/pointerHand.png') 1x, url('./assets/pointerHand@2x.png') 2x) 21 2, pointer;
+}
+
+.stage:active {
+    cursor: image-set(url('./assets/pointerHandPressed.png') 1x, url('./assets/pointerHandPressed@2x.png') 2x) 21 2, pointer;
+}
+
+.stage button {
+    cursor: inherit;
+}
+
+::view-transition-group(channel-zoom),
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 520ms;
+    animation-timing-function: cubic-bezier(0.3, 0, 0.15, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}

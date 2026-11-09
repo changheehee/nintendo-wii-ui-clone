@@ -1,0 +1,63 @@
+.bottom-panel {
+    position: absolute;
+    inset-block-start: calc(485 * var(--stage-pixel));
+    inset-inline-start: 0;
+    inline-size: calc(var(--stage-width) * var(--stage-pixel));
+    block-size: calc(190 * var(--stage-pixel));
+}
+
+.bottom-panel-shape {
+    position: absolute;
+    inset: 0;
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+}
+
+.bottom-panel-menu-button {
+    inset-block-start: calc(28 * var(--stage-pixel));
+    inset-inline-start: calc(54.5 * var(--stage-pixel));
+    inline-size: calc(110 * var(--stage-pixel));
+    block-size: calc(110 * var(--stage-pixel));
+}
+
+.bottom-panel-menu-label {
+    color: #a8a8a8;
+    font-family: var(--font-brand);
+    font-size: calc(34.5 * var(--stage-pixel));
+    font-weight: 800;
+    letter-spacing: calc(1.2 * var(--stage-pixel));
+    line-height: 1;
+}
+
+.bottom-panel-sd {
+    position: absolute;
+    inset-block-start: calc(75 * var(--stage-pixel));
+    inset-inline-start: calc(222 * var(--stage-pixel));
+    inline-size: calc(48 * var(--stage-pixel));
+    block-size: calc(62 * var(--stage-pixel));
+    filter: drop-shadow(calc(2 * var(--stage-pixel)) calc(3 * var(--stage-pixel)) calc(2 * var(--stage-pixel)) rgb(0 0 0 / 0.16));
+}
+
+.bottom-panel-mail-button {
+    inset-block-start: calc(25 * var(--stage-pixel));
+    inset-inline-start: calc(1034 * var(--stage-pixel));
+    inline-size: calc(116 * var(--stage-pixel));
+    block-size: calc(116 * var(--stage-pixel));
+}
+
+.bottom-panel-mail-icon {
+    display: block;
+    inline-size: calc(60 * var(--stage-pixel));
+    block-size: calc(40 * var(--stage-pixel));
+    margin-block-start: calc(4 * var(--stage-pixel));
+}
+
+.bottom-panel-mail-count {
+    margin-block-start: calc(6 * var(--stage-pixel));
+    color: #aaaaaa;
+    font-family: var(--font-count);
+    font-weight: 400;
+    font-size: calc(29 * var(--stage-pixel));
+    line-height: 1;
+}

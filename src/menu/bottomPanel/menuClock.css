@@ -1,0 +1,45 @@
+.menu-clock-time {
+    --clock-letter-spacing: calc(-2 * var(--stage-pixel));
+
+    position: absolute;
+    inset-block-start: calc(10 * var(--stage-pixel));
+    inset-inline: 0;
+    padding-inline-start: calc(-1 * var(--clock-letter-spacing));
+    color: #a9a9a9;
+    font-family: var(--font-clock);
+    font-size: calc(44 * var(--stage-pixel));
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: var(--clock-letter-spacing);
+    text-align: center;
+    -webkit-text-stroke: calc(1.6 * var(--stage-pixel)) currentColor;
+}
+
+.menu-clock-colon {
+    margin-inline: calc(6 * var(--stage-pixel));
+    animation: blink-colon 2s steps(1) infinite;
+}
+
+.menu-clock-date {
+    position: absolute;
+    inset-block-start: calc(85.5 * var(--stage-pixel));
+    inset-inline: 0;
+    color: #848589;
+    font-family: var(--font-system);
+    font-size: calc(50 * var(--stage-pixel));
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+}
+
+@keyframes blink-colon {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-clock-colon {
+        animation: none;
+    }
+}

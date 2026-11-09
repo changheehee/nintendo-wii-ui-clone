@@ -1,0 +1,39 @@
+.round-button {
+    position: absolute;
+    display: grid;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    filter: drop-shadow(0 calc(4 * var(--stage-pixel)) calc(3 * var(--stage-pixel)) rgb(0 0 0 / 0.18));
+    transition:
+        scale var(--release-duration) ease-out,
+        filter var(--release-duration) ease-out;
+}
+
+.round-button:hover {
+    scale: 1.05;
+}
+
+.round-button:active {
+    scale: 0.94;
+    filter: drop-shadow(0 calc(1.5 * var(--stage-pixel)) calc(1.5 * var(--stage-pixel)) rgb(0 0 0 / 0.24)) brightness(var(--pressed-brightness));
+    transition-duration: var(--press-duration);
+}
+
+.round-button-face,
+.round-button-content {
+    grid-area: 1 / 1;
+}
+
+.round-button-face {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+}
+
+.round-button-content {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+}
